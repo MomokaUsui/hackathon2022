@@ -1,9 +1,22 @@
-import React from "react";
+
+import React, {useEffect} from "react";
+import {useNavigate,  Link} from "react-router-dom";
 import apartment from "../src/images/apartment.jpeg"
-import { Link } from "react-router-dom";
+
+
+
+
 
 function Goal() {
   //javascript
+   const navigate = useNavigate()
+  useEffect(() => { //ログインしてない人を弾く
+    const isLogin = sessionStorage.getItem('isLogin')   
+    if(isLogin !== "true") {
+      navigate("/")
+    }
+  }, [])
+
   return (
     <div>
       <div className="bg-indigo-900 relative overflow-hidden h-screen">
