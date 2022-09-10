@@ -1,5 +1,4 @@
 import React from "react";
-
 import obake1 from "../src/images/obake1.png";
 import obake2 from "../src/images/obake2.png";
 import obake3 from "../src/images/obake3.png";
@@ -7,15 +6,21 @@ import back from "../src/images/back.png";
 import nekomata from "../src/images/nekomata.jpg";
 import kappa from "../src/images/kappa.jpg";
 import kabotya from "../src/images/kabotya.jpg";
+import { useTimer } from "react-timer-hook";
+import Timer from "./Components/Timer";
 
 function Main() {
+  const time = new Date();
+
   return (
     <div className="bg-blue-900 w-screen h-full">
       ここがMainページです
+      <Timer expiryTimestamp={time} />
       <img src={obake1} className="w-20" />
       <section className=" dark:bg-gray-900">
         <div className="container px-6 py-10 mx-auto">
           <div className="flex items-center justify-between">
+            <p></p>
             <h1 className="text-3xl font-semibold text-white capitalize lg:text-4xl dark:text-white">
               おばけマンション
             </h1>
