@@ -1,9 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
+import {useNavigate} from "react-router-dom"
 
 import obake1 from "../src/images/obake1.png";
 import obake2 from "../src/images/obake2.png";
 import obake3 from "../src/images/obake3.png";
 function Main() {
+
+
+  const navigate = useNavigate()
+  useEffect(() => { //ログインしてない人を弾く
+    const isLogin = sessionStorage.getItem('isLogin')   
+    if(isLogin !== "true") {
+      navigate("/")
+    }
+  }, [])
+
   return (
     <div>
       ここがMainページです
