@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Goal from "../Goal";
 import Login from "../Login";
 import Main from "../Main";
+import NotFound from "./NotFound";
 
 function RoutePage() {
   return (
@@ -11,6 +12,7 @@ function RoutePage() {
         <Route path="/goal" element={<Goal />} />
         <Route path="/" element={<Login />} />
         <Route path="/main" element={<Main />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
