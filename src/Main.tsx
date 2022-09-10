@@ -52,7 +52,7 @@ function Main() {
                 <span className="text-blue-500 uppercase">猫又</span>
 
                 <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
-                  What do you want to know about UI
+                  猫又とは？
                 </h1>
 
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
@@ -95,7 +95,7 @@ function Main() {
                 <span className="text-blue-500 uppercase">河童</span>
 
                 <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
-                  All the features you want to know
+                  河童とは？
                 </h1>
 
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
@@ -138,13 +138,15 @@ function Main() {
                   ジャックオランタン
                 </span>
                 <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
-                  Which services you get from Meraki UI
+                  ジャックオランタンとは?
                 </h1>
 
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-                  est asperiores vel, ab animi recusandae nulla veritatis id
-                  tempore sapiente
+                  ジャック・オー・ランタン（英: Jack-o'-Lantern[注釈 1][注釈
+                  2]）は、アイルランド、および、スコットランド（いずれもケルト系文化が色濃い）に伝わる鬼火のような存在。
+                  日本語ではジャック・オー・ランタン以外にも「ジャック・オ・ランタン」や「ジャッコランタン」、あるいは
+                  "-o'-"
+                  に当たる部分を省略した「ジャックランタン」との表記・発音もある。漢語との混ぜ書きでは「提灯ジャック」とも言う。
                 </p>
 
                 <div className="flex items-center justify-between mt-4">

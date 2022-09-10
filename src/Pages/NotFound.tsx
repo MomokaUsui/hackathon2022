@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import NotFoundModal from "../Components/NotFoundModal";
+import { AlertModal } from "../Components/AlertModal";
+import { NotFoundModal } from "../Components/NotFoundModal";
 
 function NotFound() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isAlertOpen, setAlertOpen] = useState(false);
+  setTimeout(() => {
+    setAlertOpen(true);
+  }, 5000);
+
   return (
     <div>
+      <AlertModal isAlertOpen={isAlertOpen} setAlertOpen={setAlertOpen} />
       <div className="bg-indigo-900 relative overflow-hidden h-screen">
         <img
           src="/images/landscape/8.svg"
@@ -31,7 +38,7 @@ function NotFound() {
           </div>
         </div>
       </div>
-      <NotFoundModal />
+      <NotFoundModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 }
