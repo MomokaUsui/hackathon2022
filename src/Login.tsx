@@ -7,18 +7,28 @@ const Login: React.FC = () => {
   const [name, setName] = useState("ユーザー名")
   const [email, setEmail] = useState("メールアドレス")
   const [isAlertOpen, setAlertOpen] = useState(false)
+  const [checkBox, setCheckBox] = useState(false)
   const newUserNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   }
   const newUserEmailInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   }
+  const changeCheckBox = () => {
+    setCheckBox(!checkBox)
+    console.log(checkBox)
+  }
   const navigate = useNavigate()
 
   const buttonClicked = () => {
-    sessionStorage.setItem('name', `${name}`);
-    sessionStorage.setItem('isLogin', "true");
-    navigate("/main")
+    if(checkBox) {
+      window.alert("利用規約に同意してください")
+    } else {
+      sessionStorage.setItem('name', `${name}`);
+      sessionStorage.setItem('isLogin', "true");
+      navigate("/main")
+    }
+    
   }
 
 
@@ -59,7 +69,7 @@ const Login: React.FC = () => {
           
         </div>
         <div className="mt-4 flex items-center text-gray-500">
-          <input type="checkbox" name="remember" className="mr-3" />
+          <input type="checkbox" name="remember" className="mr-3" onChange={changeCheckBox}/>
           <label htmlFor="remember"><u onClick={() => {setAlertOpen(!isAlertOpen)}}>利用規約</u>に同意しません</label><br/>
         <PolicyModal showModal={isAlertOpen} setShowModal={setAlertOpen} />
           
@@ -76,17 +86,30 @@ const Login: React.FC = () => {
           <button
             className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
             onClick={buttonClicked}
-            disabled={!name || !email}
+            disabled={!name || !email }
           >
             ログイン
           </button>
+          
         </div>
       </form>
     </div>
+
+    <div style={{display: "flex", flexFlow: "column", alignItems: "center", position: "relative", top: -270, left: 420}}>
+      <p className="text-white text-3xl">僕たちを探してね!</p>
+    <div className="flex" style={{}}>
+      <img src={`${process.env.PUBLIC_URL}/obake1.png`}  className="w-20" />
+      <img src={`${process.env.PUBLIC_URL}/obake2.png`}  className="w-20" />
+      <img src={`${process.env.PUBLIC_URL}/obake3.png`}  className="w-20" />
+    </div>
+    </div>
+    
   </div>
   
 </div>
+
     </div>
+    
   )
 }
 
