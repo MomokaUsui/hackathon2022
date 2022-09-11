@@ -10,12 +10,14 @@ import { AlertMain } from "./Components/Modal/AlertMain";
 import { CallModal } from "./Components/Modal/CallModal";
 import { Obake1 } from "./Components/Obake/Obake1";
 import { useRecoilState } from "recoil";
-import { obake1Atom } from "./Pages/ObakeAtom";
-
+import { obake1Atom, timeAtom } from "./Pages/ObakeAtom";
+import { SalesModal } from "./Components/Modal/SalesModal";
 function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isCallOpen, setCallOpen] = useState(false);
   const [obake1, setObake1] = useRecoilState(obake1Atom);
+  const [time, setTime] = useRecoilState(timeAtom);
+  console.log(time);
 
   setTimeout(() => {
     setAlertOpen(true);
@@ -24,8 +26,6 @@ function Main() {
   setTimeout(() => {
     setCallOpen(true);
   }, 30000);
-  const time = new Date();
-  time.setSeconds(time.getSeconds() + 300); // 10 minutes timer
   const navigate = useNavigate();
   useEffect(() => {
     //ログインしてない人を弾く
@@ -33,6 +33,7 @@ function Main() {
     if (isLogin !== "true") {
       navigate("/");
     }
+    time.setSeconds(time.getSeconds() + 300); // 10 minutes timer
   }, []);
 
   return (
@@ -80,7 +81,7 @@ function Main() {
               <div className="mt-8">
                 <span className="text-blue-500 uppercase">猫又</span>
 
-                <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
+                <h1 className="mt-4 text-xl font-semibold text-green-500 dark:text-white">
                   猫又とは？
                 </h1>
 
@@ -123,7 +124,7 @@ function Main() {
               <div className="mt-8">
                 <span className="text-blue-500 uppercase">河童</span>
 
-                <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
+                <h1 className="mt-4 text-xl font-semibold text-green-500 dark:text-white">
                   河童とは？
                 </h1>
 
@@ -166,7 +167,7 @@ function Main() {
                 <span className="text-blue-500 uppercase">
                   ジャックオランタン
                 </span>
-                <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">
+                <h1 className="mt-4 text-xl font-semibold text-green-500 dark:text-white">
                   ジャックオランタンとは?
                 </h1>
 
@@ -201,6 +202,7 @@ function Main() {
                 </div>
               </div>
             </div>
+            <SalesModal />
           </div>
         </div>
       </section>
