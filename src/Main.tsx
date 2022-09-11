@@ -16,6 +16,9 @@ import { AnimalModal } from "./Components/Modal/AnimalModal";
 import { MainModal } from "./Components/Modal/MainModal";
 import { Obake1 } from "./Components/Obake/Obake1";
 import { Obake2 } from "./Components/Obake/Obake2";
+import call_music from "../src/musics/call_music.mp3";
+import call4 from "../src/musics/call4.mp3";
+import { clear } from "console";
 function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +29,11 @@ function Main() {
 
   const [modalPotision, setModalPosition] = useState(1);
   console.log(time);
-
   const [obake1, setObake1] = useRecoilState(obake1Atom);
-
   const [obake2, setObake2] = useRecoilState(obake2Atom);
-
   const music = new Audio(goal_music);
+  const callMusic = new Audio(call_music);
+  const call4Music = new Audio(call4);
   function play() {
     music.play();
   }
@@ -39,14 +41,22 @@ function Main() {
   setTimeout(() => {
     setAlertOpen(true);
   }, 50000);
+
   // 電話
-  setTimeout(() => {
-    setCallOpen(true);
-  }, 30000);
+  useEffect(() => {
+    let callCall = setTimeout(() => {
+      setCallOpen(true);
+      call4Music.play();
+      console.log("電話");
+    }, 8000);
+    return () => {
+      clearTimeout(callCall);
+    };
+  }, []);
   const navigate = useNavigate();
   useEffect(() => {
-    //ログインしてない人を弾く
-    // play();
+    // ログインしてない人を弾く
+    play();
     const isLogin = sessionStorage.getItem("isLogin");
     if (isLogin !== "true") {
       navigate("/");
@@ -66,7 +76,11 @@ function Main() {
   return (
     <div className="bg-blue-900 w-screen h-full">
       <AlertMain isAlertOpen={isAlertOpen} setAlertOpen={setAlertOpen} />
-      <CallModal isAlertOpen={isCallOpen} setAlertOpen={setCallOpen} />
+      <CallModal
+        isAlertOpen={isCallOpen}
+        setAlertOpen={setCallOpen}
+        music={call4Music}
+      />
       <Timer expiryTimestamp={time} />
       <Obake1 setObake1={setObake1} obake1={obake1} />
       <section className=" dark:bg-gray-900">
