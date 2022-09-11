@@ -16,7 +16,6 @@ function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isCallOpen, setCallOpen] = useState(false);
   const [obake1, setObake1] = useRecoilState(obake1Atom);
-
   setTimeout(() => {
     setAlertOpen(true);
   }, 50000);
@@ -34,6 +33,11 @@ function Main() {
       navigate("/");
     }
   }, []);
+
+  //おばけを3つとも見つけていればgoalへ遷移する
+  if(sessionStorage.getItem("obake1") == "true" && sessionStorage.getItem("obake2") == "true" && sessionStorage.getItem("obake3") == "true") {
+    navigate("/goal")
+  }
 
   return (
     <div className="bg-blue-900 w-screen h-full">
