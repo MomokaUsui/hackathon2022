@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AiTwotonePhone } from "react-icons/ai";
 import { ImPhoneHangUp } from "react-icons/im";
 import { useRecoilState } from "recoil";
 import { obake1Atom } from "../../Pages/ObakeAtom";
+import call_music from "../../musics/call_music.mp3";
 export const CallModal = (props: {
   isAlertOpen: boolean;
   setAlertOpen: (toggle: boolean) => void;
@@ -12,6 +13,17 @@ export const CallModal = (props: {
   let nowMin = nowTime.getMinutes(); // 分数を抜き出す
   let msg = nowHour + ":" + nowMin;
   const [obake1, setObake1] = useRecoilState(obake1Atom);
+  //消すかも
+  // const music = new Audio(call_music);
+  // function call() {
+  //   music.play();
+  // }
+  // call();
+  
+  useEffect(() => {
+    // 処理
+    console.log("みゅーじっく")
+  }, [])
 
   return (
     <div>

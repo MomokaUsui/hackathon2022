@@ -8,7 +8,7 @@ import { useTimer } from "react-timer-hook";
 import Timer from "./Components/Timer";
 import { AlertMain } from "./Components/Modal/AlertMain";
 import { CallModal } from "./Components/Modal/CallModal";
-import goal_music from "../src/musics/mix_5m04s.mp3";
+import goal_music from "../src/musics/music.mp3";
 import { useRecoilState } from "recoil";
 import { obake1Atom, obake2Atom, timeAtom } from "./Pages/ObakeAtom";
 import { SalesModal } from "./Components/Modal/SalesModal";
@@ -28,6 +28,7 @@ function Main() {
   console.log(time);
 
   const [obake1, setObake1] = useRecoilState(obake1Atom);
+
   const [obake2, setObake2] = useRecoilState(obake2Atom);
 
   const music = new Audio(goal_music);
