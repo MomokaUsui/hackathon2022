@@ -1,5 +1,6 @@
 import React from "react";
-
+import { AiTwotonePhone } from "react-icons/ai";
+import { ImPhoneHangUp } from "react-icons/im";
 export const CallModal = (props: {
   isAlertOpen: boolean;
   setAlertOpen: (toggle: boolean) => void;
@@ -37,51 +38,47 @@ export const CallModal = (props: {
               <div className="pl-4 text-gray-200">
                 <p className="font-bold text-red-500">電話 緊急</p>
                 <p>
-                  非通知設定 携帯 <span className="text-gray-500">{msg}</span>
+                  非通知設定 <span className="text-gray-200">{msg}</span>
                 </p>
               </div>
             </div>
             <div className="center">
               <button
                 type="button"
-                className="ml-4 mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="ml-4 mt-2 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 <svg
                   aria-hidden="true"
-                  className="w-4 h-4"
+                  className="w-6 h-6"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
+                  <AiTwotonePhone className="text-xl" />
                 </svg>
                 <span className="sr-only">Icon description</span>
               </button>
             </div>
             <div className="center">
+              {/* 電話切る */}
               <button
                 type="button"
-                className="ml-4 mt-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="ml-4 mt-2 text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={() => props.setAlertOpen(false)}
               >
                 <svg
                   aria-hidden="true"
-                  className="w-4 h-4"
+                  className="w-6 h-6"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                 
+                  <ImPhoneHangUp className="text-xl" />
                 </svg>
                 <span className="sr-only">Icon description</span>
               </button>
             </div>
-            
           </div>
-          
         </div>
       ) : null}
     </div>

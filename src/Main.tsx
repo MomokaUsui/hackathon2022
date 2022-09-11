@@ -15,12 +15,14 @@ import { CallModal } from "./Components/CallModal";
 function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isCallOpen, setCallOpen] = useState(false);
+
   setTimeout(() => {
     setAlertOpen(true);
   }, 50000);
+  // 電話
   setTimeout(() => {
     setCallOpen(true);
-  }, 5000);
+  }, 30000);
   const time = new Date();
   time.setSeconds(time.getSeconds() + 300); // 10 minutes timer
   const navigate = useNavigate();
@@ -201,8 +203,8 @@ function Main() {
           </div>
         </div>
       </section>
-      {/* <img src={obake2} classNameName="w-20" />
-      <img src={obake3} classNameName="w-20" /> */}
+      <img src={obake2} className="w-20" />
+      <img src={obake3} className="w-20" />
     </div>
   );
 }
