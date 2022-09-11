@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import obake1 from "../src/images/obake1.png";
-import obake2 from "../src/images/obake2.png";
-import obake3 from "../src/images/obake3.png";
 import back from "../src/images/back.png";
 import nekomata from "../src/images/nekomata.jpg";
 import kappa from "../src/images/kappa.jpg";
@@ -39,7 +36,7 @@ function Main() {
       <AlertMain isAlertOpen={isAlertOpen} setAlertOpen={setAlertOpen} />
       <CallModal isAlertOpen={isCallOpen} setAlertOpen={setCallOpen} />
       <Timer expiryTimestamp={time} />
-      <img src={obake1} className="w-20" />
+      <img src={`${process.env.PUBLIC_URL}/obake1.png`} />
       <section className=" dark:bg-gray-900">
         <div className="container px-6 py-10 mx-auto">
           <div className="flex items-center justify-between">
@@ -203,8 +200,8 @@ function Main() {
           </div>
         </div>
       </section>
-      <img src={obake2} className="w-20" />
-      <img src={obake3} className="w-20" />
+      {/* <img src={obake2} className="w-20" />
+      <img src={obake3} className="w-20" /> */}
     </div>
   );
 }
