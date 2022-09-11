@@ -18,20 +18,20 @@ function Timer({ expiryTimestamp }) {
   });
 
   return (
-    <div className="text-center">
+    <div className="text-green-400 text-center pt-10">
       <h1>制限時間 </h1>
       <div style={{ fontSize: "100px" }}>
         <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
         <span>{seconds}</span>
       </div>
       <p className="p-3">{isRunning ? "Running" : "Not running"}</p>
-      <button className="px-5 bg-blue-200" onClick={start}>
+      {/* <button className="px-5 bg-blue-200" onClick={start}>
         Start
-      </button>
-      <button className="px-5 bg-blue-200" onClick={pause}>
+      </button> */}
+      {/* <button className="px-5 bg-blue-200" onClick={pause}>
         Pause
-      </button>
-      <button className="px-5 bg-blue-200" onClick={resume}>
+      </button> */}
+      {/* <button className="px-5 bg-blue-200" onClick={resume}>
         Resume
       </button>
       <button
@@ -44,7 +44,7 @@ function Timer({ expiryTimestamp }) {
         }}
       >
         Restart
-      </button>
+      </button> */}
     </div>
   );
 }

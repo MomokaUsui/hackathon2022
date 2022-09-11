@@ -1,6 +1,5 @@
-
-import React, {useEffect} from "react";
-import {useNavigate} from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import obake1 from "../src/images/obake1.png";
 import obake2 from "../src/images/obake2.png";
 import obake3 from "../src/images/obake3.png";
@@ -10,29 +9,40 @@ import kappa from "../src/images/kappa.jpg";
 import kabotya from "../src/images/kabotya.jpg";
 import { useTimer } from "react-timer-hook";
 import Timer from "./Components/Timer";
+import { AlertMain } from "./Components/AlertMain";
+import { CallModal } from "./Components/CallModal";
 
 function Main() {
-
-
+  const [isAlertOpen, setAlertOpen] = useState(false);
+  const [isCallOpen, setCallOpen] = useState(false);
+  setTimeout(() => {
+    setAlertOpen(true);
+  }, 50000);
+  setTimeout(() => {
+    setCallOpen(true);
+  }, 5000);
   const time = new Date();
-  const navigate = useNavigate()
-  useEffect(() => { //ログインしてない人を弾く
-    const isLogin = sessionStorage.getItem('isLogin')   
-    if(isLogin !== "true") {
-      navigate("/")
+  time.setSeconds(time.getSeconds() + 300); // 10 minutes timer
+  const navigate = useNavigate();
+  useEffect(() => {
+    //ログインしてない人を弾く
+    const isLogin = sessionStorage.getItem("isLogin");
+    if (isLogin !== "true") {
+      navigate("/");
     }
-  }, [])
+  }, []);
 
   return (
     <div className="bg-blue-900 w-screen h-full">
-      ここがMainページです
+      <AlertMain isAlertOpen={isAlertOpen} setAlertOpen={setAlertOpen} />
+      <CallModal isAlertOpen={isCallOpen} setAlertOpen={setCallOpen} />
       <Timer expiryTimestamp={time} />
       <img src={obake1} className="w-20" />
       <section className=" dark:bg-gray-900">
         <div className="container px-6 py-10 mx-auto">
           <div className="flex items-center justify-between">
             <p></p>
-            <h1 className="text-3xl font-semibold text-white capitalize lg:text-4xl dark:text-white">
+            <h1 className="text-3xl font-semibold text-green-400 capitalize lg:text-4xl dark:text-white">
               おばけマンション
             </h1>
 
