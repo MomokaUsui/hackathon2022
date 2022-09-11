@@ -20,3 +20,8 @@ export const obake3Atom = atom({
   key: "obake3Atom",
   default: true,
 });
+
+export const timeAtom = atom({
+  key: "timeAtom",
+  default: new Date(),
+});
