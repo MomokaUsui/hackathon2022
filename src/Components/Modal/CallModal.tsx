@@ -49,6 +49,10 @@ export const CallModal = (props: {
               <button
                 type="button"
                 className="ml-4 mt-2 text-white bg-green-600 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={() => {
+                  props.setAlertOpen(false);
+                  setObake1(true);
+                }}
               >
                 <svg
                   aria-hidden="true"
@@ -67,10 +71,6 @@ export const CallModal = (props: {
               <button
                 type="button"
                 className="ml-4 mt-2 text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                onClick={() => {
-                  props.setAlertOpen(false);
-                  setObake1(true);
-                }}
               >
                 <svg
                   aria-hidden="true"

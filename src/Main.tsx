@@ -13,18 +13,21 @@ import { Obake1 } from "./Components/Obake/Obake1";
 import { useRecoilState } from "recoil";
 import { obake1Atom, timeAtom } from "./Pages/ObakeAtom";
 import { SalesModal } from "./Components/Modal/SalesModal";
+import { AnimalModal } from "./Components/Modal/AnimalModal";
+import { MainModal } from "./Components/Modal/MainModal";
 function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isCallOpen, setCallOpen] = useState(false);
+  const [isNekoOpen, setNekoOpen] = useState(false);
+  const [isKaboOpen, setKaboOpen] = useState(false);
   const [time, setTime] = useRecoilState(timeAtom);
-  console.log(time);
-
+  const [obake1, setObake1] = useRecoilState(obake1Atom);
   const music = new Audio(goal_music);
   function play() {
     music.play();
   }
 
-  const [obake1, setObake1] = useRecoilState(obake1Atom);
   setTimeout(() => {
     setAlertOpen(true);
   }, 50000);
@@ -35,7 +38,7 @@ function Main() {
   const navigate = useNavigate();
   useEffect(() => {
     //ログインしてない人を弾く
-    play();
+    // play();
     const isLogin = sessionStorage.getItem("isLogin");
     if (isLogin !== "true") {
       navigate("/");
@@ -44,8 +47,12 @@ function Main() {
   }, []);
 
   //おばけを3つとも見つけていればgoalへ遷移する
-  if(sessionStorage.getItem("obake1") == "true" && sessionStorage.getItem("obake2") == "true" && sessionStorage.getItem("obake3") == "true") {
-    navigate("/goal")
+  if (
+    sessionStorage.getItem("obake1") == "true" &&
+    sessionStorage.getItem("obake2") == "true" &&
+    sessionStorage.getItem("obake3") == "true"
+  ) {
+    navigate("/goal");
   }
 
   return (
@@ -59,7 +66,10 @@ function Main() {
           <div className="flex items-center justify-between">
             <p></p>
             <h1 className="text-3xl font-semibold text-green-400 capitalize lg:text-4xl dark:text-white">
-              おばけマンション
+              <span className="cursor-pointer hover:text-green-700 underline">
+                おばけ
+              </span>
+              マンション
             </h1>
 
             <button className="focus:outline-none">
@@ -93,7 +103,10 @@ function Main() {
               <div className="mt-8">
                 <span className="text-blue-500 uppercase">猫又</span>
 
-                <h1 className="mt-4 text-xl font-semibold text-green-500 dark:text-white">
+                <h1
+                  className="mt-4 text-xl cursor-copy font-semibold text-green-500 dark:text-white"
+                  onClick={() => setNekoOpen(true)}
+                >
                   猫又とは？
                 </h1>
 
@@ -158,12 +171,9 @@ function Main() {
                     </p>
                   </div>
 
-                  <a
-                    href="#"
-                    className="inline-block text-blue-500 underline hover:text-blue-400"
-                  >
+                  <button className="inline-block text-blue-500 underline hover:text-blue-400">
                     Read more
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -179,7 +189,10 @@ function Main() {
                 <span className="text-blue-500 uppercase">
                   ジャックオランタン
                 </span>
-                <h1 className="mt-4 text-xl font-semibold text-green-500 dark:text-white">
+                <h1
+                  className="mt-4 text-xl font-semibold text-green-500 dark:text-white"
+                  onClick={() => setKaboOpen(true)}
+                >
                   ジャックオランタンとは?
                 </h1>
 
@@ -205,16 +218,29 @@ function Main() {
                     </p>
                   </div>
 
-                  <a
-                    href="#"
-                    className="inline-block text-blue-500 underline hover:text-blue-400"
+                  <button
+                    className="inline-block text-white underline hover:text-blue-400"
+                    onClick={() => {
+                      setIsOpen(true);
+                    }}
                   >
-                    Read more
-                  </a>
+                    CLICK
+                  </button>
                 </div>
               </div>
             </div>
             <SalesModal />
+            {/* <AnimalModal
+              isAlertOpen={isNekoOpen}
+              setAlertOpen={setNekoOpen}
+              animal="neko"
+            />
+            <AnimalModal
+              isAlertOpen={isKaboOpen}
+              setAlertOpen={setKaboOpen}
+              animal="kabo"
+            /> */}
+            <MainModal isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
         </div>
       </section>

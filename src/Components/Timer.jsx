@@ -19,7 +19,7 @@ function Timer({ expiryTimestamp }) {
 
   return (
     <div className="text-green-400 text-center pt-10">
-      <h1>制限時間 </h1>
+      <h1 className="text-3xl">制限時間 </h1>
       <div style={{ fontSize: "100px" }}>
         <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
         <span>{seconds}</span>
