@@ -6,8 +6,9 @@ import kappa from "../src/images/kappa.jpg";
 import kabotya from "../src/images/kabotya.jpg";
 import { useTimer } from "react-timer-hook";
 import Timer from "./Components/Timer";
-import { AlertMain } from "./Components/Modal/AlertMain";
-import { CallModal } from "./Components/Modal/CallModal";
+import { AlertMain } from "./Components/AlertMain";
+import { CallModal } from "./Components/CallModal";
+import goal_music from "../src/musics/death_sound4.mp3";
 import { Obake1 } from "./Components/Obake/Obake1";
 import { useRecoilState } from "recoil";
 import { obake1Atom, timeAtom } from "./Pages/ObakeAtom";
@@ -19,6 +20,12 @@ function Main() {
   const [time, setTime] = useRecoilState(timeAtom);
   console.log(time);
 
+  const music = new Audio(goal_music);
+  function play() {
+    music.play();
+  }
+
+  const [obake1, setObake1] = useRecoilState(obake1Atom);
   setTimeout(() => {
     setAlertOpen(true);
   }, 50000);
@@ -29,12 +36,18 @@ function Main() {
   const navigate = useNavigate();
   useEffect(() => {
     //ログインしてない人を弾く
+    play();
     const isLogin = sessionStorage.getItem("isLogin");
     if (isLogin !== "true") {
       navigate("/");
     }
     time.setSeconds(time.getSeconds() + 300); // 10 minutes timer
   }, []);
+
+  //おばけを3つとも見つけていればgoalへ遷移する
+  if(sessionStorage.getItem("obake1") == "true" && sessionStorage.getItem("obake2") == "true" && sessionStorage.getItem("obake3") == "true") {
+    navigate("/goal")
+  }
 
   return (
     <div className="bg-blue-900 w-screen h-full">
