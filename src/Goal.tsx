@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import apartment from "../src/images/apartment.jpeg";
 import useSound from "use-sound";
-import goal_music from "../src/musics/death_sound4.mp3";
+import goal_music from "../src/musics/mix_5m04s.mp3";
 
 
 
