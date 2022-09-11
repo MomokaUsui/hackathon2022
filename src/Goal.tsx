@@ -7,13 +7,21 @@ import goal_music from "../src/musics/death_sound4.mp3";
 function Goal() {
   //javascript
   const navigate = useNavigate();
-  useEffect(() => {
-    //ログインしてない人を弾く
+  useEffect(() => { //ログインしてない人を弾く
     const isLogin = sessionStorage.getItem("isLogin");
     if (isLogin !== "true") {
       navigate("/");
     }
   }, []);
+  
+  /* //完成したらコメントアウトを解除してください
+  useEffect(() => { //おばけを三匹見つけていなかったらmainに飛ばす
+    if(sessionStorage.getItem("obake1") !== "true" || sessionStorage.getItem("obake2") !== "true" || sessionStorage.getItem("obake3") !== "true") {
+      navigate("/main")
+    }
+  }, [])
+  */
+
   setTimeout(() => {
     console.log("Hello, World!");
   }, 3000);
@@ -82,6 +90,7 @@ function Goal() {
             <Link
               to="/"
               className="block bg-gray-800 hover:bg-gray-900 py-3 px-4 text-lg text-white font-bold uppercase mt-10 "
+              onClick={() => {sessionStorage.clear()}}
             >
               トップページに戻る
             </Link>
