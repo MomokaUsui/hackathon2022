@@ -28,13 +28,13 @@ function Goal() {
     }
   }, []);
   
-  /* //完成したらコメントアウトを解除してください
+  
   useEffect(() => { //おばけを三匹見つけていなかったらmainに飛ばす
     if(sessionStorage.getItem("obake1") !== "true" || sessionStorage.getItem("obake2") !== "true" || sessionStorage.getItem("obake3") !== "true") {
       navigate("/main")
     }
   }, [])
-  */
+  
 
   setTimeout(() => {
     console.log("Hello, World!");
