@@ -35,17 +35,14 @@ export default function PolicyModal(props: {
                 <div className=" p-6 flex-auto relative">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed" style={{overscrollBehavior: "auto"}}>
                     
-                  I always felt like I could do anything. That’s the main
-                    thing diveople are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
-                    ikufdamnfdmasl;dfmeadl;fml;adfm;lfmddsl;fm,ad;
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    dfm;lfmddsl;fm,ad;
+                  あああああああああああああああああああああああ
+                  あああああああああああああああああああああああ
+                  あああああああああああああああああああああああ
+                  あああああああああああああああああああああああ
+                  あああああああああああああああああああああああ
+                  あああああああああああああああああああああああ
+                  あああああああああああああああああああああああ
+                  あああああああああああああああああああああああ
                    
                   </p>
                 </div>
