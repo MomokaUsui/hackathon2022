@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { AlertModal } from "../Components/AlertModal";
-import { NotFoundModal } from "../Components/NotFoundModal";
+import { AlertModal } from "../Components/Modal/AlertModal";
+import { NotFoundModal } from "../Components/Modal/NotFoundModal";
 
 function NotFound() {
   const [isOpen, setIsOpen] = useState(false);
