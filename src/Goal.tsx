@@ -13,8 +13,7 @@ function Goal() {
     music.play();
   }
   const navigate = useNavigate();
-  useEffect(() => {
-    //ログインしてない人を弾く
+  useEffect(() => { //ログインしてない人を弾く
     const isLogin = sessionStorage.getItem("isLogin");
     for (let i = 1; i < 3; i++){
       play();
@@ -23,8 +22,15 @@ function Goal() {
       navigate("/");
     }
   }, []);
-
   
+  /* //完成したらコメントアウトを解除してください
+  useEffect(() => { //おばけを三匹見つけていなかったらmainに飛ばす
+    if(sessionStorage.getItem("obake1") !== "true" || sessionStorage.getItem("obake2") !== "true" || sessionStorage.getItem("obake3") !== "true") {
+      navigate("/main")
+    }
+  }, [])
+  */
+
   setTimeout(() => {
     console.log("Hello, World!");
   }, );
@@ -90,6 +96,7 @@ function Goal() {
             <Link
               to="/"
               className="block bg-gray-800 hover:bg-gray-900 py-3 px-4 text-lg text-white font-bold uppercase mt-10 "
+              onClick={() => {sessionStorage.clear()}}
             >
               トップページに戻る
             </Link>

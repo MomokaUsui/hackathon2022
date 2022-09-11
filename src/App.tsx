@@ -1,13 +1,22 @@
 import React from "react";
 import RoutePage from "./Pages/RoutePage";
 import { BrowserRouter } from "react-router-dom";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <RoutePage />
-      </BrowserRouter>
+      <RecoilRoot>
+        <BrowserRouter>
+          <RoutePage />
+        </BrowserRouter>
+      </RecoilRoot>
     </>
   );
 }

@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { AlertModal } from "../Components/AlertModal";
-import { NotFoundModal } from "../Components/NotFoundModal";
+import { Link, useNavigate } from "react-router-dom";
+import { AlertModal } from "../Components/Modal/AlertModal";
+import { NotFoundModal } from "../Components/Modal/NotFoundModal";
 
 function NotFound() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAlertOpen, setAlertOpen] = useState(false);
+  const navigate = useNavigate()
   setTimeout(() => {
     setAlertOpen(true);
   }, 5000);
+  //おばけを3つとも見つけていればgoalへ遷移する
+  if(sessionStorage.getItem("obake1") == "true" && sessionStorage.getItem("obake2") == "true" && sessionStorage.getItem("obake3") == "true") {
+    navigate("/goal")
+  }
 
   return (
     <div>
