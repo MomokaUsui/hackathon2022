@@ -15,7 +15,6 @@ export const obake2Atom = atom({
   key: "obake2Atom",
   default: true,
 });
-
 export const obake3Atom = atom({
   key: "obake3Atom",
   default: true,

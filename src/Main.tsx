@@ -6,8 +6,8 @@ import kappa from "../src/images/kappa.jpg";
 import kabotya from "../src/images/kabotya.jpg";
 import { useTimer } from "react-timer-hook";
 import Timer from "./Components/Timer";
-import { AlertMain } from "./Components/AlertMain";
-import { CallModal } from "./Components/CallModal";
+import { AlertMain } from "./Components/Modal/AlertMain";
+import { CallModal } from "./Components/Modal/CallModal";
 import goal_music from "../src/musics/death_sound4.mp3";
 import { Obake1 } from "./Components/Obake/Obake1";
 import { useRecoilState } from "recoil";
@@ -16,7 +16,6 @@ import { SalesModal } from "./Components/Modal/SalesModal";
 function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isCallOpen, setCallOpen] = useState(false);
-  const [obake1, setObake1] = useRecoilState(obake1Atom);
   const [time, setTime] = useRecoilState(timeAtom);
   console.log(time);
 
