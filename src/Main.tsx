@@ -8,10 +8,15 @@ import { useTimer } from "react-timer-hook";
 import Timer from "./Components/Timer";
 import { AlertMain } from "./Components/AlertMain";
 import { CallModal } from "./Components/CallModal";
+import goal_music from "../src/musics/death_sound4.mp3";
 
 function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isCallOpen, setCallOpen] = useState(false);
+  const music = new Audio(goal_music);
+  function play() {
+    music.play();
+  }
 
   setTimeout(() => {
     setAlertOpen(true);
@@ -25,6 +30,7 @@ function Main() {
   const navigate = useNavigate();
   useEffect(() => {
     //ログインしてない人を弾く
+    play();
     const isLogin = sessionStorage.getItem("isLogin");
     if (isLogin !== "true") {
       navigate("/");
