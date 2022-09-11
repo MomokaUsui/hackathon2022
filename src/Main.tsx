@@ -9,12 +9,13 @@ import Timer from "./Components/Timer";
 import { AlertMain } from "./Components/Modal/AlertMain";
 import { CallModal } from "./Components/Modal/CallModal";
 import goal_music from "../src/musics/mix_5m04s.mp3";
-import { Obake1 } from "./Components/Obake/Obake1";
 import { useRecoilState } from "recoil";
-import { obake1Atom, timeAtom } from "./Pages/ObakeAtom";
+import { obake1Atom, obake2Atom, timeAtom } from "./Pages/ObakeAtom";
 import { SalesModal } from "./Components/Modal/SalesModal";
 import { AnimalModal } from "./Components/Modal/AnimalModal";
 import { MainModal } from "./Components/Modal/MainModal";
+import { Obake1 } from "./Components/Obake/Obake1";
+import { Obake2 } from "./Components/Obake/Obake2";
 function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -23,10 +24,11 @@ function Main() {
   const [isKaboOpen, setKaboOpen] = useState(false);
   const [time, setTime] = useRecoilState(timeAtom);
 
-  const [modalPotision, setModalPosition] = useState(1)
+  const [modalPotision, setModalPosition] = useState(1);
   console.log(time);
 
   const [obake1, setObake1] = useRecoilState(obake1Atom);
+  const [obake2, setObake2] = useRecoilState(obake2Atom);
 
   const music = new Audio(goal_music);
   function play() {
@@ -97,7 +99,7 @@ function Main() {
 
           <hr className="my-8 border-gray-200 dark:border-gray-700" />
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3" >
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
             <div>
               <img
                 className="object-cover object-center w-full h-64 rounded-lg lg:h-80"
@@ -234,22 +236,115 @@ function Main() {
                 </div>
               </div>
             </div>
+            <div>
+              <img
+                className="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+                src={kabotya}
+                alt=""
+              />
 
-           
+              <div className="mt-8">
+                <span className="text-blue-500 uppercase">
+                  ジャックオランタン
+                </span>
+                <h1
+                  className="mt-4 text-xl font-semibold text-green-500 dark:text-white"
+                  onClick={() => setKaboOpen(true)}
+                >
+                  ジャックオランタンとは?
+                </h1>
 
-            <SalesModal />
-            {/* <AnimalModal
-              isAlertOpen={isNekoOpen}
-              setAlertOpen={setNekoOpen}
-              animal="neko"
-            />
-            <AnimalModal
-              isAlertOpen={isKaboOpen}
-              setAlertOpen={setKaboOpen}
-              animal="kabo"
-            /> */}
+                <p className="mt-2 text-gray-500 dark:text-gray-400">
+                  ジャック・オー・ランタン（英: Jack-o'-Lantern[注釈 1][注釈
+                  2]）は、アイルランド、および、スコットランド（いずれもケルト系文化が色濃い）に伝わる鬼火のような存在。
+                  日本語ではジャック・オー・ランタン以外にも「ジャック・オ・ランタン」や「ジャッコランタン」、あるいは
+                  "-o'-"
+                  に当たる部分を省略した「ジャックランタン」との表記・発音もある。漢語との混ぜ書きでは「提灯ジャック」とも言う。
+                </p>
+
+                <div className="flex items-center justify-between mt-4">
+                  <div>
+                    <a
+                      href="#"
+                      className="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
+                    >
+                      Tom Hank
+                    </a>
+
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      February 19, 2022
+                    </p>
+                  </div>
+
+                  <button
+                    className="inline-block text-white underline hover:text-blue-400"
+                    onClick={() => {
+                      setIsOpen(true);
+                    }}
+                  >
+                    CLICK
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <img
+                className="object-cover object-center w-full h-64 rounded-lg lg:h-80"
+                src={kabotya}
+                alt=""
+              />
+
+              <div className="mt-8">
+                <span className="text-blue-500 uppercase">
+                  ジャックオランタン
+                </span>
+                <h1
+                  className="mt-4 text-xl font-semibold text-green-500 dark:text-white"
+                  onClick={() => setKaboOpen(true)}
+                >
+                  ジャックオランタンとは?
+                </h1>
+
+                <p className="mt-2 text-gray-500 dark:text-gray-400">
+                  ジャック・オー・ランタン（英: Jack-o'-Lantern[注釈 1][注釈
+                  2]）は、アイルランド、および、スコットランド（いずれもケルト系文化が色濃い）に伝わる鬼火のような存在。
+                  日本語ではジャック・オー・ランタン以外にも「ジャック・オ・ランタン」や「ジャッコランタン」、あるいは
+                  "-o'-"
+                  に当たる部分を省略した「ジャックランタン」との表記・発音もある。漢語との混ぜ書きでは「提灯ジャック」とも言う。
+                </p>
+
+                <div className="flex items-center justify-between mt-4">
+                  <div>
+                    <a
+                      href="#"
+                      className="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
+                    >
+                      Tom Hank
+                    </a>
+
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      February 19, 2022
+                    </p>
+                  </div>
+
+                  <button
+                    className="inline-block text-white underline hover:text-blue-400"
+                    onClick={() => {
+                      setIsOpen(true);
+                    }}
+                  >
+                    CLICK
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="relative top-24 left-32 ">
+                <Obake2 setObake2={setObake2} obake2={obake2} />
+              </div>
+              <SalesModal />
+            </div>
             <MainModal isOpen={isOpen} setIsOpen={setIsOpen} />
-
           </div>
         </div>
       </section>
