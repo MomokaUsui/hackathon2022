@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from "react-router-dom"
 import door from "./images/door.png";
+import PolicyModal from "./Components/PolicyModal";
 
 const Login: React.FC = () => {
   const [name, setName] = useState("ユーザー名")
   const [email, setEmail] = useState("メールアドレス")
+  const [isAlertOpen, setAlertOpen] = useState(false)
   const newUserNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   }
@@ -58,7 +60,9 @@ const Login: React.FC = () => {
         </div>
         <div className="mt-4 flex items-center text-gray-500">
           <input type="checkbox" name="remember" className="mr-3" />
-          <label htmlFor="remember"><u className= "onclick=openModal('modal')">利用規約</u>に同意します</label>
+          <label htmlFor="remember"><u onClick={() => {setAlertOpen(!isAlertOpen)}}>利用規約</u>に同意しません</label><br/>
+        <PolicyModal showModal={isAlertOpen} setShowModal={setAlertOpen} />
+          
         </div>
 
 
@@ -80,6 +84,7 @@ const Login: React.FC = () => {
       </form>
     </div>
   </div>
+  
 </div>
     </div>
   )
