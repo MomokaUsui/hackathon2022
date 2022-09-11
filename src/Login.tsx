@@ -74,7 +74,7 @@ const Login: React.FC = () => {
                     />
                   </div>
                   <div className="mt-4 flex items-center text-gray-500">
-                    <input type="checkbox" name="remember" className="mr-3" />
+                    <input type="checkbox" name="remember" className="mr-3" onChange={() => {changeCheckBox()}}/>
                     <label htmlFor="remember">
                       <u
                         onClick={() => {

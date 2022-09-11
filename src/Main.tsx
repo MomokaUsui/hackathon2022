@@ -22,7 +22,12 @@ function Main() {
   const [isNekoOpen, setNekoOpen] = useState(false);
   const [isKaboOpen, setKaboOpen] = useState(false);
   const [time, setTime] = useRecoilState(timeAtom);
+
+  const [modalPotision, setModalPosition] = useState(1)
+  console.log(time);
+
   const [obake1, setObake1] = useRecoilState(obake1Atom);
+
   const music = new Audio(goal_music);
   function play() {
     music.play();
@@ -92,7 +97,7 @@ function Main() {
 
           <hr className="my-8 border-gray-200 dark:border-gray-700" />
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3" >
             <div>
               <img
                 className="object-cover object-center w-full h-64 rounded-lg lg:h-80"
@@ -229,6 +234,9 @@ function Main() {
                 </div>
               </div>
             </div>
+
+           
+
             <SalesModal />
             {/* <AnimalModal
               isAlertOpen={isNekoOpen}
@@ -241,6 +249,7 @@ function Main() {
               animal="kabo"
             /> */}
             <MainModal isOpen={isOpen} setIsOpen={setIsOpen} />
+
           </div>
         </div>
       </section>
