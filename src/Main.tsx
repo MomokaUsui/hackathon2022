@@ -17,6 +17,7 @@ function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isCallOpen, setCallOpen] = useState(false);
   const [time, setTime] = useRecoilState(timeAtom);
+  const [modalPotision, setModalPosition] = useState(1)
   console.log(time);
 
   const music = new Audio(goal_music);
@@ -82,7 +83,7 @@ function Main() {
 
           <hr className="my-8 border-gray-200 dark:border-gray-700" />
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3" >
             <div>
               <img
                 className="object-cover object-center w-full h-64 rounded-lg lg:h-80"
@@ -214,7 +215,7 @@ function Main() {
                 </div>
               </div>
             </div>
-            <SalesModal />
+            <SalesModal/>
           </div>
         </div>
       </section>

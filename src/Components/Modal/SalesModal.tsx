@@ -1,13 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 
 export const SalesModal = () => {
+    const [modalPosition, setModalPosition] = useState<number>(10)
   return (
-    <div className=" float-right shadow-lg rounded-2xl w-64 bg-white dark:bg-gray-800 p-4">
+    
+    <div style={{
+      position: "relative",
+      top: modalPosition,
+      left: 910,
+    }} className=" float-right shadow-lg rounded-2xl w-64 bg-white dark:bg-gray-800 p-4">
       <div className="flex">
         <p className="text-gray-800 dark:text-gray-50 text-3xl font-medium mb-4 mr-36">
           Pro
         </p>
-        <button className=" float-right px-3 py-1 mb-4 bg-blue-400 text-xs text-white font-semibold rounded hover:bg-blue-500">
+        <button onClick={() => {setModalPosition(modalPosition - 80)}} className=" float-right px-3 py-1 mb-4 bg-blue-400 text-xs text-white font-semibold rounded hover:bg-blue-500">
           ^
         </button>
       </div>
