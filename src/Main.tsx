@@ -16,6 +16,9 @@ import { AnimalModal } from "./Components/Modal/AnimalModal";
 import { MainModal } from "./Components/Modal/MainModal";
 import { Obake1 } from "./Components/Obake/Obake1";
 import { Obake2 } from "./Components/Obake/Obake2";
+import call_music from "../src/musics/call_music.mp3";
+import call4 from "../src/musics/call4.mp3";
+import { clear } from "console";
 function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +29,11 @@ function Main() {
 
   const [modalPotision, setModalPosition] = useState(1);
   console.log(time);
-
   const [obake1, setObake1] = useRecoilState(obake1Atom);
-
   const [obake2, setObake2] = useRecoilState(obake2Atom);
-
   const music = new Audio(goal_music);
+  const callMusic = new Audio(call_music);
+  const call4Music = new Audio(call4);
   function play() {
     music.play();
   }
@@ -39,14 +41,22 @@ function Main() {
   setTimeout(() => {
     setAlertOpen(true);
   }, 50000);
+
   // 電話
-  setTimeout(() => {
-    setCallOpen(true);
-  }, 30000);
+  useEffect(() => {
+    let callCall = setTimeout(() => {
+      setCallOpen(true);
+      call4Music.play();
+      console.log("電話");
+    }, 8000);
+    return () => {
+      clearTimeout(callCall);
+    };
+  }, []);
   const navigate = useNavigate();
   useEffect(() => {
-    //ログインしてない人を弾く
-    // play();
+    // ログインしてない人を弾く
+    play();
     const isLogin = sessionStorage.getItem("isLogin");
     if (isLogin !== "true") {
       navigate("/");
@@ -66,7 +76,11 @@ function Main() {
   return (
     <div className="bg-blue-900 w-screen h-full">
       <AlertMain isAlertOpen={isAlertOpen} setAlertOpen={setAlertOpen} />
-      <CallModal isAlertOpen={isCallOpen} setAlertOpen={setCallOpen} />
+      <CallModal
+        isAlertOpen={isCallOpen}
+        setAlertOpen={setCallOpen}
+        music={call4Music}
+      />
       <Timer expiryTimestamp={time} />
       <Obake1 setObake1={setObake1} obake1={obake1} />
       <section className=" dark:bg-gray-900">
@@ -239,28 +253,22 @@ function Main() {
             </div>
             <div>
               <img
-                className="object-cover object-center w-full h-64 rounded-lg lg:h-80"
-                src={kabotya}
-                alt=""
+                src={`${process.env.PUBLIC_URL}/amabie.png`}
+                className="object-cover object-center w-full h-64 rounded-lg lg:h-80 bg-gray-300"
               />
 
               <div className="mt-8">
-                <span className="text-blue-500 uppercase">
-                  ジャックオランタン
-                </span>
+                <span className="text-blue-500 uppercase">アマビエ</span>
                 <h1
                   className="mt-4 text-xl font-semibold text-green-500 dark:text-white"
                   onClick={() => setKaboOpen(true)}
                 >
-                  ジャックオランタンとは?
+                  アマビエとは
                 </h1>
 
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
-                  ジャック・オー・ランタン（英: Jack-o'-Lantern[注釈 1][注釈
-                  2]）は、アイルランド、および、スコットランド（いずれもケルト系文化が色濃い）に伝わる鬼火のような存在。
-                  日本語ではジャック・オー・ランタン以外にも「ジャック・オ・ランタン」や「ジャッコランタン」、あるいは
-                  "-o'-"
-                  に当たる部分を省略した「ジャックランタン」との表記・発音もある。漢語との混ぜ書きでは「提灯ジャック」とも言う。
+                  アマビエは、1846年5月（弘化3年4月）に現在の熊本県にあたる肥後国海上に出現したとされる日本の疫病封じの妖怪[1]。海中から光を輝かせるなどの現象を起こし、豊作や疫病などに関する予言をしたと伝えられる。
+                  同種と考えられる存在にアマビコやアリエなどがある。
                 </p>
 
                 <div className="flex items-center justify-between mt-4">
@@ -269,7 +277,7 @@ function Main() {
                       href="#"
                       className="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
                     >
-                      Tom Hank
+                      ama bie
                     </a>
 
                     <p className="text-sm text-gray-500 dark:text-gray-400">
@@ -290,28 +298,21 @@ function Main() {
             </div>
             <div>
               <img
-                className="object-cover object-center w-full h-64 rounded-lg lg:h-80"
-                src={kabotya}
-                alt=""
+                src={`${process.env.PUBLIC_URL}/nurari.png`}
+                className="object-cover object-center w-full h-64 rounded-lg lg:h-80 bg-gray-300"
               />
-
               <div className="mt-8">
-                <span className="text-blue-500 uppercase">
-                  ジャックオランタン
-                </span>
+                <span className="text-blue-500 uppercase">ぬらりひょん</span>
                 <h1
                   className="mt-4 text-xl font-semibold text-green-500 dark:text-white"
                   onClick={() => setKaboOpen(true)}
                 >
-                  ジャックオランタンとは?
+                  ぬらりひょんとは?
                 </h1>
 
                 <p className="mt-2 text-gray-500 dark:text-gray-400">
-                  ジャック・オー・ランタン（英: Jack-o'-Lantern[注釈 1][注釈
-                  2]）は、アイルランド、および、スコットランド（いずれもケルト系文化が色濃い）に伝わる鬼火のような存在。
-                  日本語ではジャック・オー・ランタン以外にも「ジャック・オ・ランタン」や「ジャッコランタン」、あるいは
-                  "-o'-"
-                  に当たる部分を省略した「ジャックランタン」との表記・発音もある。漢語との混ぜ書きでは「提灯ジャック」とも言う。
+                  一般に、瓢箪鯰（ひょうたんなまず）のように掴まえ所が無い化物[1]
+                  であるとされる。江戸時代に描かれた妖怪絵巻などにその姿が多く確認できるが、詳細は不明である。民間伝承には百鬼夜行の一員（秋田県）、海坊主の一種（岡山県）にその名称が確認されるが、描かれている妖怪画の「ぬらりひょん」との前後の関係性は明らかではない
                 </p>
 
                 <div className="flex items-center justify-between mt-4">

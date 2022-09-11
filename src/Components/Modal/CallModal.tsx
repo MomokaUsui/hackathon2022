@@ -7,6 +7,7 @@ import call_music from "../../musics/call_music.mp3";
 export const CallModal = (props: {
   isAlertOpen: boolean;
   setAlertOpen: (toggle: boolean) => void;
+  music: HTMLAudioElement;
 }) => {
   let nowTime = new Date(); //  現在日時を得る
   let nowHour = nowTime.getHours(); // 時間を抜き出す
@@ -19,11 +20,7 @@ export const CallModal = (props: {
   //   music.play();
   // }
   // call();
-  
-  useEffect(() => {
-    // 処理
-    console.log("みゅーじっく")
-  }, [])
+  const callMusic = new Audio(call_music);
 
   return (
     <div>
@@ -64,6 +61,8 @@ export const CallModal = (props: {
                 onClick={() => {
                   props.setAlertOpen(false);
                   setObake1(true);
+                  // props.music.pause();
+                  // props.music.currentTime = 0;
                 }}
               >
                 <svg
