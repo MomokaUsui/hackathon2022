@@ -30,7 +30,7 @@ export const NotFoundModal = (props: {
                 {/*body*/}
                 <div className="relative flex-auto p-6">
                   <p className="my-4 text-lg leading-relaxed text-white">
-                    よく見つけたな！！
+                    よく見つけたね！！
                   </p>
                 </div>
                 {/* <img src={obake3} className="w-20" /> */}
