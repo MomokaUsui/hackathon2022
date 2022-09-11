@@ -4,8 +4,6 @@ import { useRecoilState } from "recoil";
 import { obake3Atom } from "../../Pages/ObakeAtom";
 import { Obake3 } from "../Obake/Obake3";
 
-//TODO:4.8.1.5.1
-//削除ができているか微妙(リロードしないと削除不可)
 
 export const MainModal = (props: {
   isOpen: boolean;
