@@ -6,12 +6,16 @@ import kappa from "../src/images/kappa.jpg";
 import kabotya from "../src/images/kabotya.jpg";
 import { useTimer } from "react-timer-hook";
 import Timer from "./Components/Timer";
-import { AlertMain } from "./Components/AlertMain";
-import { CallModal } from "./Components/CallModal";
+import { AlertMain } from "./Components/Modal/AlertMain";
+import { CallModal } from "./Components/Modal/CallModal";
+import { Obake1 } from "./Components/Obake/Obake1";
+import { useRecoilState } from "recoil";
+import { obake1Atom } from "./Pages/ObakeAtom";
 
 function Main() {
   const [isAlertOpen, setAlertOpen] = useState(false);
   const [isCallOpen, setCallOpen] = useState(false);
+  const [obake1, setObake1] = useRecoilState(obake1Atom);
 
   setTimeout(() => {
     setAlertOpen(true);
@@ -36,7 +40,7 @@ function Main() {
       <AlertMain isAlertOpen={isAlertOpen} setAlertOpen={setAlertOpen} />
       <CallModal isAlertOpen={isCallOpen} setAlertOpen={setCallOpen} />
       <Timer expiryTimestamp={time} />
-      <img src={`${process.env.PUBLIC_URL}/obake1.png`} />
+      <Obake1 setObake1={setObake1} obake1={obake1} />
       <section className=" dark:bg-gray-900">
         <div className="container px-6 py-10 mx-auto">
           <div className="flex items-center justify-between">
@@ -200,8 +204,6 @@ function Main() {
           </div>
         </div>
       </section>
-      {/* <img src={obake2} className="w-20" />
-      <img src={obake3} className="w-20" /> */}
     </div>
   );
 }

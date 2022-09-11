@@ -1,6 +1,8 @@
 import React from "react";
 import { AiTwotonePhone } from "react-icons/ai";
 import { ImPhoneHangUp } from "react-icons/im";
+import { useRecoilState } from "recoil";
+import { obake1Atom } from "../../Pages/ObakeAtom";
 export const CallModal = (props: {
   isAlertOpen: boolean;
   setAlertOpen: (toggle: boolean) => void;
@@ -9,6 +11,7 @@ export const CallModal = (props: {
   let nowHour = nowTime.getHours(); // 時間を抜き出す
   let nowMin = nowTime.getMinutes(); // 分数を抜き出す
   let msg = nowHour + ":" + nowMin;
+  const [obake1, setObake1] = useRecoilState(obake1Atom);
 
   return (
     <div>
@@ -64,7 +67,10 @@ export const CallModal = (props: {
               <button
                 type="button"
                 className="ml-4 mt-2 text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                onClick={() => props.setAlertOpen(false)}
+                onClick={() => {
+                  props.setAlertOpen(false);
+                  setObake1(true);
+                }}
               >
                 <svg
                   aria-hidden="true"

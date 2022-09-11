@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { obake3Atom } from "../../Pages/ObakeAtom";
+import { Obake3 } from "../Obake/Obake3";
 
 //TODO:4.8.1.5.1
 //削除ができているか微妙(リロードしないと削除不可)
@@ -8,6 +11,7 @@ export const NotFoundModal = (props: {
   isOpen: boolean;
   setIsOpen: (toggle: boolean) => void;
 }) => {
+  const [obake3, setObake3] = useRecoilState(obake3Atom);
   return (
     <>
       {props.isOpen ? (
@@ -32,7 +36,7 @@ export const NotFoundModal = (props: {
                     よく見つけたね！！
                   </p>
                 </div>
-                <img  className='w-20' src={`${process.env.PUBLIC_URL}/obake3.png`} />
+                <Obake3 obake3={obake3} setObake3={setObake3} />
                 {/*footer*/}
                 <div className="flex items-center justify-end rounded-b border-t border-solid border-slate-200 p-6">
                   <button
