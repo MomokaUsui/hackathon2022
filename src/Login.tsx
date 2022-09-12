@@ -62,10 +62,12 @@ const Login: React.FC = () => {
         >
           <div className="">
             <div className="p-8 lg:w-1/2 mx-auto">
-              <div className="bg-white rounded-t-lg p-8">
+              <div className="bg-blue-900 rounded-t-lg">
                 <div>
-                  <div className="flex items-center justify-center space-x-4 mt-0">
-                    <p className="text-2xl">お化けマンション</p>
+                  <div className="flex items-center justify-center ">
+                    {/* <p className="text-2xl">お化けマンション</p> */}
+                    <img src={`${process.env.PUBLIC_URL}/title.png`} className="w-96 mt-4 mb-0" />
+
                   </div>
                 </div>
               </div>
