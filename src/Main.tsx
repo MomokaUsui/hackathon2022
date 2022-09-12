@@ -277,6 +277,10 @@ function Main() {
                   アマビエは、1846年5月（弘化3年4月）に現在の熊本県にあたる肥後国海上に出現したとされる日本の疫病封じの妖怪[1]。海中から光を輝かせるなどの現象を起こし、豊作や疫病などに関する予言をしたと伝えられる。
                   同種と考えられる存在にアマビコやアリエなどがある。
                 </p>
+                <p className="mt-2 text-gray-500 dark:text-gray-400">
+                「404 not found」とは、クライアントの要求に対応するページが、すでに存在しないことを意味する、「サーバーが返すHTTPステータスコードの一つ」のことです
+                </p>
+
 
                 <div className="flex items-center justify-between mt-4">
                   <div>
@@ -284,7 +288,7 @@ function Main() {
                       href="#"
                       className="text-lg font-medium text-gray-700 dark:text-gray-300 hover:underline hover:text-gray-500"
                     >
-                      ama bie
+                      hint aruyo
                     </a>
 
                     <p className="text-sm text-gray-500 dark:text-gray-400">
