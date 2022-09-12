@@ -42,8 +42,13 @@ function Main() {
     setAlertOpen(true);
   }, 50000);
 
-  // 電話
+  
   useEffect(() => {
+    // 制限時間
+    time.setSeconds(300);
+    time.getSeconds();
+
+    //電話
     let callCall = setTimeout(() => {
       setCallOpen(true);
       call4Music.play();
@@ -61,7 +66,9 @@ function Main() {
     if (isLogin !== "true") {
       navigate("/");
     }
-    time.setSeconds(time.getSeconds() + 300); // 10 minutes timer
+    // 10 minutes timer
+    // time.setSeconds(300); 
+    // time.getSeconds ();
   }, []);
 
   //おばけを3つとも見つけていればgoalへ遷移する

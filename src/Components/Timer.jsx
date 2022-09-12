@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useTimer } from "react-timer-hook";
 
 function Timer({ expiryTimestamp }) {
@@ -16,15 +17,20 @@ function Timer({ expiryTimestamp }) {
     expiryTimestamp,
     onExpire: () => console.warn("onExpire called"),
   });
-
+  const navigate = useNavigate();
+  if (
+    isRunning === false
+  ) {
+    navigate("/");
+  }
   return (
     <div className="text-green-400 text-center pt-10">
       <h1 className="text-3xl">制限時間 </h1>
       <div style={{ fontSize: "100px" }}>
-        <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
+        <span>{minutes}</span>:
         <span>{seconds}</span>
       </div>
-      <p className="p-3">{isRunning ? "Running" : "Not running"}</p>
+      <p className="p-3">{isRunning ? "Running" : "Time up"}</p>
       {/* <button className="px-5 bg-blue-200" onClick={start}>
         Start
       </button> */}
