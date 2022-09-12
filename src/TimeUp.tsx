@@ -7,9 +7,10 @@ export const TimeUp = () => {
       <img src={`${process.env.PUBLIC_URL}/timeup.png`} className="m-auto" />
       <Link to="/">
         <button className="bg-blue-600 hover:bg-blue-800 text-white rounded px-4 py-2">
-          ホームに戻る
+          もう一度チャレンジする!
         </button>
       </Link>
+      <p className="text-white pt-10">ホームに戻ったら「リロード」をしてからもう一度チャレンジしてください！</p>
     </div>
   );
 };
