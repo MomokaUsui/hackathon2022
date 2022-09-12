@@ -12,10 +12,10 @@ const Login: React.FC = () => {
   const [time, setTime] = useRecoilState(timeAtom);
   const nowTime = new Date();
   const [isAlertOpen, setAlertOpen] = useState(false);
-  const [isCancelOpen, setCancelOpen] = useState(false)
+  const [isCancelOpen, setCancelOpen] = useState(false);
   const [checkBox, setCheckBox] = useState(false);
-  const [checkPolicy, setCheckPolicy] = useState(false)
-  
+  const [checkPolicy, setCheckPolicy] = useState(false);
+
   const newUserNameInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
@@ -28,17 +28,16 @@ const Login: React.FC = () => {
   };
   const navigate = useNavigate();
 
-  useEffect(() => { //sessionstrageの初期化
-    sessionStorage.clear()
-  }, [])
-
+  useEffect(() => {
+    //sessionstrageの初期化
+    sessionStorage.clear();
+  }, []);
 
   const ButtonClicked = () => {
     if (!checkBox) {
       window.alert("利用規約に同意してください");
-    } else if(!checkPolicy) {
+    } else if (!checkPolicy) {
       window.alert("利用規約をちゃんと読んでから同意してください");
-
     } else {
       sessionStorage.setItem("name", `${name}`);
       sessionStorage.setItem("isLogin", "true");
@@ -47,9 +46,9 @@ const Login: React.FC = () => {
   };
 
   const CancelButtonClicked = () => {
-    setEmail("")
-    setName("")
-  }
+    setEmail("");
+    setName("");
+  };
 
   return (
     <>
@@ -91,12 +90,19 @@ const Login: React.FC = () => {
                     />
                   </div>
                   <div className="mt-4 flex items-center text-gray-500">
-                    <input type="checkbox" name="remember" className="mr-3" onChange={() => {changeCheckBox()}}/>
+                    <input
+                      type="checkbox"
+                      name="remember"
+                      className="mr-3"
+                      onChange={() => {
+                        changeCheckBox();
+                      }}
+                    />
                     <label htmlFor="remember">
                       <u
                         onClick={() => {
                           setAlertOpen(!isAlertOpen);
-                          setCheckPolicy(true)
+                          setCheckPolicy(true);
                         }}
                       >
                         利用規約
@@ -118,27 +124,6 @@ const Login: React.FC = () => {
                     >
                       ログイン
                     </button>
-
-                    
-
-
-
-
-
-
-
-
-                          
-
-
-
-
-
-
-
-
-
-
                   </div>
                 </form>
               </div>
@@ -153,16 +138,17 @@ const Login: React.FC = () => {
           alignItems: "center",
           position: "relative",
           top: -270,
-          left: 900,
-          maxWidth: 300
+          left: 800,
+          maxWidth: 500,
         }}
       >
-        <p className="text-white text-3xl">僕たちを探してね!</p>
+        <p className="text-white text-3xl">僕たちを探してクリックしてね!</p>
         <div className="flex" style={{}}>
           <img src={`${process.env.PUBLIC_URL}/obake1.png`} className="w-20" />
           <img src={`${process.env.PUBLIC_URL}/obake2.png`} className="w-20" />
           <img src={`${process.env.PUBLIC_URL}/obake3.png`} className="w-20" />
         </div>
+        <p className="text-white text-3xl">全員探せたらクリア!</p>
       </div>
       <div />
     </>

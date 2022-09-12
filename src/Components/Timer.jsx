@@ -21,7 +21,7 @@ function Timer({ expiryTimestamp }) {
   if (
     isRunning === false
   ) {
-    navigate("/");
+    navigate("/timeup");
   }
   return (
     <div className="text-green-400 text-center pt-10">
